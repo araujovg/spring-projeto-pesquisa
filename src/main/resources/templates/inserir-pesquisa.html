@@ -42,17 +42,17 @@
             <div class="card">
                 <div class="card-header">Pesquisa sobre nosso cinema</div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form th:action="@{/salvar}" th:object="${pesquisa}" method="post" >
                         <div class="row">
                             <div class="col-5">
                                 <div class="form-outline">
-                                    <input type="text" id="typeText" class="form-control" />
+                                    <input type="text" id="typeText" class="form-control" th:field="*{nome}"/>
                                     <label class="form-label" for="typeText">Nome</label>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-outline">
-                                    <input type="email" id="typeEmail" class="form-control" />
+                                    <input type="email" id="typeEmail" class="form-control" th:field="*{email}"/>
                                     <label class="form-label" for="typeEmail">Email</label>
                                 </div>
                             </div>
@@ -62,40 +62,40 @@
                                 <h6>Sexo</h6>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                        value="option1" />
+                                    value="Masculino" th:field="*{sexo}"/>
                                     <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                        value="option2" />
+                                    value="Feminino" th:field="*{sexo}"/>
                                     <label class="form-check-label" for="inlineRadio2">Feminino</label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <h6>Estado Civil</h6>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                        value="option1" />
+                                    <input class="form-check-input" type="radio" name="estCivil" id="inlineRadio1"
+                                        value="Casado(a)" th:field="*{estadoCivil}"/>
                                     <label class="form-check-label" for="inlineRadio1">Casado(a)</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                        value="option2" />
+                                    <input class="form-check-input" type="radio" name="estCivil" id="inlineRadio2"
+                                        value="Solteiro(a)" th:field="*{estadoCivil}"/>
                                     <label class="form-check-label" for="inlineRadio2">Solteiro(a)</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                        value="option2" />
-                                    <label class="form-check-label" for="inlineRadio2">Viúvo(a)</label>
+                                    <input class="form-check-input" type="radio" name="estCivil" id="inlineRadio3"
+                                        value="Viúvo(a)" th:field="*{estadoCivil}"/>
+                                    <label class="form-check-label" for="inlineRadio3">Viúvo(a)</label>
                                 </div>
         
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                        value="option2" />
-                                    <label class="form-check-label" for="inlineRadio2">Divorciado(a)</label>
+                                    <input class="form-check-input" type="radio" name="estCivil" id="inlineRadio4"
+                                    th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).FICCAO}" th:field="*{estadoCivil}"/>
+                                    <label class="form-check-label" for="inlineRadio4">Divorciado(a)</label>
                                 </div>
                             </div>
                         </div>
@@ -103,37 +103,37 @@
                             <div class="col-12">
                                 <!-- Default checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).FICCAO}" th:field="*{generoFilmes}" id="flexCheckDefault" />
                                     <label class="form-check-label" for="flexCheckDefault">Ficção</label>
                                 </div>
         
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).ACAO}" th:field="*{generoFilmes}" id="flexCheckChecked" />
                                     <label class="form-check-label" for="flexCheckChecked">Ação</label>
                                 </div>
         
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).TERROR}" th:field="*{generoFilmes}" id="flexCheckChecked" />
                                     <label class="form-check-label" for="flexCheckChecked">Terror</label>
                                 </div>
         
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).ROMANCE}" th:field="*{generoFilmes}" id="flexCheckChecked" />
                                     <label class="form-check-label" for="flexCheckChecked">Romance</label>
                                 </div>
         
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).COMEDIA}" th:field="*{generoFilmes}" id="flexCheckChecked" />
                                     <label class="form-check-label" for="flexCheckChecked">Comédia</label>
                                 </div>
         
                                 <!-- Checked checkbox -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                    <input class="form-check-input" type="checkbox" th:value="${T(br.com.gva.pesquisas.model.GeneroFilme).ANIMACAO}" th:field="*{generoFilmes}" id="flexCheckChecked" />
                                     <label class="form-check-label" for="flexCheckChecked">Animação</label>
                                 </div>
                             </div>
