@@ -1,4 +1,4 @@
-package br.com.gva.pesquisas.model;
+package br.com.gva.pesquisas.model.enums;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.com.gva.pesquisas.model.GeneroFilme;
+import br.com.gva.pesquisas.model.dto.PesquisaInserirDTO;
 import br.com.gva.pesquisas.model.entidade.Pesquisa;
+import br.com.gva.pesquisas.model.enums.GeneroFilme;
 import br.com.gva.pesquisas.service.PesquisaService;
 
 @Controller
@@ -30,7 +31,7 @@ public class PesquisaController {
     }
 
     @PostMapping("/salvar")
-    public String novaPesquisa(@ModelAttribute("pesquisa") Pesquisa pesquisa){
+    public String novaPesquisa(@ModelAttribute("pesquisa") PesquisaInserirDTO pesquisa){
         service.salvar(pesquisa);
         return "inserir-pesquisa";
     }
