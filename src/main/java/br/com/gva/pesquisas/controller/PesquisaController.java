@@ -3,6 +3,8 @@ package br.com.gva.pesquisas.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,7 @@ import br.com.gva.pesquisas.model.dto.PesquisaInserirDTO;
 import br.com.gva.pesquisas.model.entidade.Pesquisa;
 import br.com.gva.pesquisas.model.enums.GeneroFilme;
 import br.com.gva.pesquisas.service.PesquisaService;
+import jakarta.validation.Valid;
 
 @Controller
 public class PesquisaController {
@@ -31,8 +34,10 @@ public class PesquisaController {
     }
 
     @PostMapping("/salvar")
-    public String novaPesquisa(@ModelAttribute("pesquisa") PesquisaInserirDTO pesquisa){
-        service.salvar(pesquisa);
+    public String novaPesquisa(@ModelAttribute("pesquisa") @Valid PesquisaInserirDTO pesquisa, Errors errors, Model model){
+        if(!errors.hasErrors()){
+            service.salvar(pesquisa);
+        }
         return "inserir-pesquisa";
     }
     
