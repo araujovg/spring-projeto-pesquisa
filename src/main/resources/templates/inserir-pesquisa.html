@@ -44,21 +44,18 @@
                 <div class="card-body">
                     <form th:action="@{/salvar}" th:object="${pesquisa}" method="post" >
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-6">
                                 <div class="form-outline">
-                                    <input type="text" id="nome" class="form-control" th:field="*{nome}"/>
+                                    <input type="text" id="nome" class="form-control" th:field="*{nome}"
+                                        th:errorclass="is-invalid"/>
                                     <label class="form-label" for="nome">Nome</label>
-                                    
                                 </div>
-                                <!-- <div th:class="${#fields.hasErrors('nome') ? is-invalid ? }" th:if="${#fields.hasErrors('nome')}">
-                                    <span th:errors="*{nome}"></span>
-                                    
-                                </div> -->
-                                <span style="color: brown;" th:errors="*{nome}"></span>
+                                <div class="text-danger" th:errors="*{nome}"></div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-6">
                                 <div class="form-outline">
-                                    <input type="email" id="typeEmail" class="form-control" th:field="*{email}"/>
+                                    <input type="email" id="typeEmail" class="form-control" th:field="*{email}"
+                                        th:errorclass="is-invalid"/>
                                     <label class="form-label" for="typeEmail">Email</label>
                                 </div>
                             </div>

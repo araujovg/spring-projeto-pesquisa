@@ -34,8 +34,8 @@ public class PesquisaController {
     }
 
     @PostMapping("/salvar")
-    public String novaPesquisa(@ModelAttribute("pesquisa") @Valid PesquisaInserirDTO pesquisa, Errors errors, Model model){
-        if(!errors.hasErrors()){
+    public String novaPesquisa(@ModelAttribute("pesquisa") @Valid PesquisaInserirDTO pesquisa, BindingResult result){
+        if(!result.hasErrors()){
             service.salvar(pesquisa);
         }
         return "inserir-pesquisa";
