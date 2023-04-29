@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.gva.pesquisas.model.dto.PesquisaInserirDTO;
 import br.com.gva.pesquisas.model.dto.PesquisaListaDTO;
@@ -17,16 +18,13 @@ import br.com.gva.pesquisas.model.enums.GeneroFilme;
 import br.com.gva.pesquisas.service.PesquisaService;
 import jakarta.validation.Valid;
 
+@RequestMapping("/pesquisas")
 @Controller
 public class PesquisaController {
 
     @Autowired
     private PesquisaService service;
 
-    @GetMapping("/home")
-    public String carregaHome(){
-        return "index";
-    }
 
     @GetMapping("/form-pesquisa")
     public String carregaPaginaDeInsercao(Model model){
