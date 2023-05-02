@@ -32,7 +32,7 @@ import lombok.ToString;
 @Entity
 public class Pesquisa {
 
-	@Getter
+	@Getter @Setter
     @EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id

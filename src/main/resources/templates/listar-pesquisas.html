@@ -15,7 +15,8 @@
                     <th>sexo</th>
                     <th>estado civil</th>
                     <th>generos de Filmes</th>
-                </tr>                
+                    <th>ações</th>
+                </tr>
             </thead>
             <tbody>
                 <tr th:each="pesquisa : ${pesquisas}">
@@ -24,6 +25,10 @@
                     <td th:text="${pesquisa.sexo}"></td>
                     <td th:text="${pesquisa.estadoCivil}"></td>
                     <td th:text="${pesquisa.generoFilmes}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/pesquisas/form-pesquisa} + '?id=' + ${pesquisa.id}">editar</a>
+                        <a class="btn btn-danger" th:href="@{/pesquisas/remover} + '?id=' + ${pesquisa.id}">excluir</a>
+                    </td>
                 </tr>
             </tbody>
           </table>

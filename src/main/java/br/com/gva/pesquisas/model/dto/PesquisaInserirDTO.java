@@ -15,6 +15,8 @@ import lombok.Data;
 @Data
 public class PesquisaInserirDTO {
 
+    private Integer id;
+
     @NotBlank(message = "Nome não pode ser vazio")
     @Size(min = 5, max = 100, message = "Nome deve ter no mínimo 5 e no máximo 100 caracteres")
     private String nome;

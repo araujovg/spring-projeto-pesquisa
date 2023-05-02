@@ -2,6 +2,7 @@ package br.com.gva.pesquisas.service;
 
 import java.util.List;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class PesquisaService {
 
     private Pesquisa dto2Pesquisa(PesquisaInserirDTO dto){
         return Pesquisa.builder()
+            .id(dto.getId())
             .nome(dto.getNome())
             .email(dto.getEmail())
             .sexo(dto.getSexo())
@@ -56,6 +58,13 @@ public class PesquisaService {
         ).toList();
     }
 
+    public void deleteById(Integer id) {
+        pesquisaRepository.deleteById(id);
+    }
+
+    public Pesquisa procurarPeloId(Integer id) {
+        return pesquisaRepository.findById(id).orElseThrow( () -> new ObjectNotFoundException("Objeto não encontrado", id));
+    }
     
 }
 
